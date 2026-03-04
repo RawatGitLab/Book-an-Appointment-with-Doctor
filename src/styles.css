@@ -1,0 +1,618 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f5f5f5;
+  line-height: 1.6;
+}
+
+.appointment-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+
+.appointment-form {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-section {
+  margin-bottom: 30px;
+}
+
+.form-section h2 {
+  color: #444;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e0e0e0;
+  font-weight: 600;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: #fafafa;
+}
+
+.form-group input:hover,
+.form-group select:hover {
+  border-color: #999;
+  background-color: white;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+  background-color: white;
+}
+
+.form-group input.error,
+.form-group select.error {
+  border-color: #e74c3c;
+  background-color: #fff8f8;
+}
+
+.form-group input.error:focus,
+.form-group select.error:focus {
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 0.85rem;
+  margin-top: 6px;
+  display: block;
+  font-weight: 500;
+}
+
+.submit-btn {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  background-color: #357abd;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.submit-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.3);
+}
+
+/* Placeholder styling */
+::placeholder {
+  color: #aaa;
+  opacity: 1;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .appointment-container {
+    margin: 20px auto;
+    padding: 15px;
+  }
+
+  .appointment-form {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+}
+/* Add these styles to your existing CSS file */
+
+/* Radio button styles */
+.radio-group {
+  display: flex;
+  gap: 30px;
+  margin: 15px 0;
+  flex-wrap: wrap;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #555;
+  position: relative;
+  padding-left: 30px;
+}
+
+.radio-label input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.radio-custom {
+  position: absolute;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #fff;
+  border: 2px solid #ddd;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.radio-label:hover .radio-custom {
+  border-color: #4a90e2;
+}
+
+.radio-label input[type="radio"]:checked ~ .radio-custom {
+  border-color: #4a90e2;
+  background-color: #4a90e2;
+  box-shadow: inset 0 0 0 4px #fff;
+}
+
+/* DateTime group styles */
+.datetime-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Additional options section animation */
+.additional-options {
+  animation: slideDown 0.3s ease-out;
+  border-left: 3px solid #4a90e2;
+  padding-left: 20px;
+  margin-top: 20px;
+  background: linear-gradient(to right, #f8faff, transparent);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Date input styling */
+input[type="date"] {
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  padding: 5px;
+  filter: invert(0.5);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  filter: invert(0.3);
+}
+
+/* Responsive design updates */
+@media (max-width: 768px) {
+  .datetime-group {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .radio-group {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .additional-options {
+    padding-left: 15px;
+  }
+}
+
+/* Placeholder styling for datetime inputs */
+input[type="date"]:invalid {
+  color: #aaa;
+}
+
+/* Focus states */
+.radio-label input[type="radio"]:focus ~ .radio-custom {
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.3);
+}
+
+/* Disabled state styling (if needed) */
+.radio-label input[type="radio"]:disabled ~ .radio-custom {
+  background-color: #f5f5f5;
+  border-color: #ddd;
+  cursor: not-allowed;
+}
+/* Add these styles to your existing CSS file */
+
+/* Loading State Styles */
+.loading-container {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #4a90e2;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  animation: spin 1s linear infinite;
+}
+
+.loading-message {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.loading-submessage {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.loading-details {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #555;
+  border-left: 3px solid #4a90e2;
+}
+
+.loading-details p {
+  margin: 5px 0;
+}
+
+.loading-details strong {
+  color: #333;
+}
+
+/* API Response Banner */
+.api-response-banner {
+  background: #d4edda;
+  color: #155724;
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #c3e6cb;
+  animation: slideDown 0.3s ease-out;
+}
+
+/* Animations */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Disabled state for form during submission */
+form.loading {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Button loading state */
+.submit-btn.loading {
+  position: relative;
+  color: transparent;
+}
+
+.submit-btn.loading::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  left: 50%;
+  margin-left: -10px;
+  margin-top: -10px;
+  border: 2px solid white;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Responsive loading state */
+@media (max-width: 768px) {
+  .loading-container {
+    padding: 30px 20px;
+  }
+
+  .loading-message {
+    font-size: 1rem;
+  }
+
+  .loading-details {
+    font-size: 0.8rem;
+  }
+}
+/* Add these styles to your existing CSS file */
+
+/* Success View Styles */
+.success-view {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.success-banner {
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: white;
+  padding: 30px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+  animation: slideDown 0.5s ease-out;
+}
+
+.success-icon {
+  width: 60px;
+  height: 60px;
+  background: white;
+  color: #28a745;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: bold;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.success-content h2 {
+  margin: 0 0 5px 0;
+  font-size: 1.8rem;
+}
+
+.confirmation-number {
+  margin: 0;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.booking-summary {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.booking-summary h3 {
+  color: #333;
+  margin: 0 0 20px 0;
+  font-size: 1.4rem;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 10px;
+}
+
+.summary-card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.summary-section {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid #4a90e2;
+}
+
+.summary-section h4 {
+  color: #4a90e2;
+  margin: 0 0 15px 0;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.summary-section p {
+  margin: 8px 0;
+  color: #555;
+  line-height: 1.5;
+}
+
+.summary-section strong {
+  color: #333;
+}
+
+.success-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.cancel-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-width: 200px;
+}
+
+.cancel-btn:hover {
+  background-color: #c82333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+}
+
+.cancel-btn:active {
+  transform: translateY(0);
+}
+
+.secondary-btn {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-width: 200px;
+}
+
+.secondary-btn:hover {
+  background-color: #5a6268;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+}
+
+.secondary-btn:active {
+  transform: translateY(0);
+}
+
+/* Responsive Design for Success View */
+@media (max-width: 768px) {
+  .success-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .success-content h2 {
+    font-size: 1.4rem;
+  }
+
+  .summary-card {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .success-actions {
+    flex-direction: column;
+  }
+
+  .cancel-btn,
+  .secondary-btn {
+    width: 100%;
+    min-width: auto;
+  }
+}
+
+/* Animation for success view */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Print styles for booking summary */
+@media print {
+  .success-banner {
+    background: #f0f0f0;
+    color: black;
+    box-shadow: none;
+  }
+
+  .cancel-btn,
+  .secondary-btn {
+    display: none;
+  }
+}
